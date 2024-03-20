@@ -1,0 +1,22 @@
+import logging
+import os
+import sys
+from datetime import datetime
+from src.exception import CustomException
+
+LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
+logspath = os.path.join(os.getcwd(),"logs",LOG_FILE)
+
+os.makedirs(logspath,exist_ok = True)
+
+LOG_FILE_PATH = os.path.join(logspath,LOG_FILE)
+
+logging.basicConfig(
+    
+    filename = LOG_FILE_PATH,
+    format = "[%(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s",
+    level = logging.INFO
+)
+
+
+    
